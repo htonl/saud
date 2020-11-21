@@ -1,0 +1,16 @@
+#!/bin/sh
+ 
+. /etc/rc.subr 
+ 
+name=saud 
+rcvar=saud_enable 
+
+command="/usr/sbin/${name}" 
+command_args=""
+
+saud_flags="-l -d -w testarg"
+
+pidfile="/var/run/${name}.pid"
+
+load_rc_config $name 
+run_rc_command "$1"
